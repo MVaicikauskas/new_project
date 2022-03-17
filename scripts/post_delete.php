@@ -11,6 +11,7 @@ if($_GET){
     try{
         $postid = $_GET['postid'];
 
+        // post delete
         $sql = "DELETE FROM posts WHERE id='$postid'";
         $querry = $conn->prepare($sql);
         $result = $querry->execute();

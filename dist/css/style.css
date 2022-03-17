@@ -38,8 +38,6 @@ body {
 .hide {
 	display: none;
 }
-.fa-thumbs-up, .fa-thumbs-o-up {
-	transform: rotateY(-180deg);
-	font-size: 1.3em;
-}
+
+
 

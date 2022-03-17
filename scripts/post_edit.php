@@ -14,6 +14,7 @@ if($_POST){
         $postid = $_POST['postid'];
         $message = $_POST['message'];
 
+        //updating post from db with new values
         $sql = "UPDATE posts SET message = '$message'";
         $querry = $conn->prepare($sql);
         $result = $querry->execute();

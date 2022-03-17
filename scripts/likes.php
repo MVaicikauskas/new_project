@@ -10,38 +10,43 @@ require_once '../db_connection.php';
 
 if($_GET){
     try{
-
-        // taking count of like already we have
         $postid = $_GET['postid'];
+        $user = $_SESSION['username'];
 
-        $sql1 = "SELECT * FROM posts WHERE id='$postid'";
-        $querry1 = $conn->prepare($sql1);
-        $querry1->execute();
-        $likes = $querry1->fetch();
-        // +1 like after hitting like button
-        
-         if($postid == $likedPost['id']){
-            $likeCount = $likedPost['like_count']+1;
-        }
- 
-
-        // updating count of likes with new count we get
-        $sql = "UPDATE posts SET like_count = '$likeCount'";
+        $sql = "SELECT * FROM likes WHERE first_name='$user' AND post_id='$postid'";
         $querry = $conn->prepare($sql);
-        $result = $querry->execute();
+        $querry->execute();
+        $result = $querry->fetchAll();
 
-        if($result){
+        
+        if(empty($result)){
+            // inserting new likes
+            $sql = "INSERT INTO likes (first_name, post_id) VALUES ('$user', '$postid')";
+            $querry = $conn->prepare($sql);
+            $querry->execute();
+     
             header("Location: ../views/newsfeed.php");
-        } else {
-            echo "failed to update like count";
-        }
 
+            
+            
+        } else{
+            // if same person hits like button for second time on same post, so his like is deleting (unlike)
+            $sql = "DELETE FROM likes WHERE post_id='$postid' AND first_name='$user'";
+            $querry = $conn->prepare($sql);
+            $result = $querry->execute();
+            if($result){
+                header("Location: ../views/newsfeed.php");
+            }
+        }
+        
         
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 
 }
+
+
 
 
 
