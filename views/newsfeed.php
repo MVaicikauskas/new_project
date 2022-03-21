@@ -12,7 +12,7 @@ require_once '../db_connection.php';
 
 // taking info from posts table
 try{
-    $sql = "SELECT * FROM posts";
+    $sql = "SELECT * FROM posts ORDER BY updated DESC";
     $querry = $conn->prepare($sql);
     $querry->execute();
     $result = $querry->fetchAll();

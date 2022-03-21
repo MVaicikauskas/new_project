@@ -1,5 +1,8 @@
 <?php
 include '../layouts/header.php';
+if($_GET){
+    $error=$_GET['error']; 
+}
 ?>
 
 <div class="container py-4">
@@ -8,6 +11,7 @@ include '../layouts/header.php';
                 <div class="card bg-light mb-8 ">
                     <div class="card-header bg-warning">Sign Up</div>
                     <div class="card-body">
+                    <h3 class="card-title text-center text-danger"><?php echo $error; ?></h3>
                     <form action="http://192.168.64.2/new_project/scripts/login.php" method="POST" enctype="multipart/form-data">
 
                             <div class="form-group">

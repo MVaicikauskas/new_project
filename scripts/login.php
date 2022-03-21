@@ -29,14 +29,17 @@ if($result){
     // Checking password
     $passwordHash = $result['password'];
     
-    if(password_verify($password, $passwordHash)){
+    if(password_verify($password, $passwordHash) && $email=== $result['email']){
         $_SESSION['username'] = $result['first_name'];
         header('Location: ../views/users.php');
     } else {
-        echo "Password is incorrect";
+        // echo "Password is incorrect";
+        session_unset();
+        header('Location: ../views/login.php?error="Wrong email or password, please try again!"');
     }
 } else {
-    echo "Wrong email or password, try again.";
+    session_unset();
+    header('Location: ../views/login.php?error="Wrong email or password, please try again!"');
 }
 
 

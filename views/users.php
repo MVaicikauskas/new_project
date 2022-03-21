@@ -40,6 +40,9 @@ try{
                         <?php
                             foreach ($result as $user){
                                 echo "<tr><td>".$user['first_name']."</td><td>".$user['last_name']."</td><td>".$user['email']."</td><td>".$user['created']."</td><td>".$user['updated']."</td>";
+                                if($user['first_name']!=$_SESSION['username']){
+                                    echo "<td> </td><td> </td></tr>";
+                                }
 
                                 if($user['first_name']==$_SESSION['username']){
                                     echo "<td><a class='btn btn-warning' href='user_edit.php?userid=".$user['id']."'>Edit</a><a class='btn btn-danger' href='../scripts/user_delete.php?userid=".$user['id']."'>Delete</a></td></tr>";
