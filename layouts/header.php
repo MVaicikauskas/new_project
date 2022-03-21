@@ -24,7 +24,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="http://192.168.64.2/new_project/views/newsfeed.php">Newsfeed</a>
+          <a class="nav-link active" aria-current="page" href="http://192.168.64.2/new_project/views/newsfeed.php">News feed</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="http://192.168.64.2/new_project/views/users.php">Users</a>

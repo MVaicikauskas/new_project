@@ -16,6 +16,7 @@ if($_GET){
         $querry = $conn->prepare($sql);
         $querry->execute();
         $result = $querry->fetchAll();
+        
     } catch (PDOException $e){
         echo "Error: " . $e->getMessage();
     }
@@ -37,7 +38,7 @@ if($_GET){
                             <span class="input-group-text">Update post</span>
                             <textarea class="form-control" aria-label="With textarea" placeholder="Enter text to update previous post" name="message"></textarea>
                         </div>
-                        <input type="hidden" name="postid" value="<?php echo $result['id']?>">
+                        <input type="hidden" name="postid" value="<?php echo $postid?>">
                         
                         <button type="submit" class="btn btn-primary">Submit</button>
                    </form>

@@ -15,11 +15,13 @@ if($_POST){
         $message = $_POST['message'];
 
         //updating post from db with new values
-        $sql = "UPDATE posts SET message = '$message'";
+        $sql = "UPDATE posts SET message='$message' WHERE id='$postid'";
         $querry = $conn->prepare($sql);
         $result = $querry->execute();
         if($result){
             header("Location: ../views/newsfeed.php");
+        } else {
+            echo "Error: ".$e->getMessage();
         }
     } catch (PDOException $e) {
         echo "Error: ".$e->getMessage();
