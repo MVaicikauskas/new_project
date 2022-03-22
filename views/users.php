@@ -28,6 +28,7 @@ try{
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Users list</h5>
+                    <!-- Creating table of users -->
                     <table class="table table-striped">
                         <tr>
                             <th>Name</th>
@@ -43,7 +44,7 @@ try{
                                 if($user['first_name']!=$_SESSION['username']){
                                     echo "<td> </td><td> </td></tr>";
                                 }
-
+                                // if user is logged in, he can update or delete his account's info 
                                 if($user['first_name']==$_SESSION['username']){
                                     echo "<td><a class='btn btn-warning' href='user_edit.php?userid=".$user['id']."'>Edit</a><a class='btn btn-danger' href='../scripts/user_delete.php?userid=".$user['id']."'>Delete</a></td></tr>";
                                 }

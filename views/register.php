@@ -11,6 +11,7 @@ $error = $_GET['error'];
                 <div class="card-header bg-warning">Sing up new account</div>
                 <div class="card-body">
                     <h3 class="card-title text-center text-danger"><?php echo $error; ?></h3>
+                    <!-- Gathering info for registration -->
                    <form action="http://192.168.64.2/new_project/scripts/register.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="First Name" name="first_name">

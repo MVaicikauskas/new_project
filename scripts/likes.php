@@ -13,6 +13,7 @@ if($_GET){
         $postid = $_GET['postid'];
         $user = $_SESSION['username'];
 
+        //Gathering all info we need
         $sql = "SELECT * FROM likes WHERE first_name='$user' AND post_id='$postid'";
         $querry = $conn->prepare($sql);
         $querry->execute();

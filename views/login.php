@@ -14,6 +14,7 @@ if($_GET){
                     <h3 class="card-title text-center text-danger"><?php echo $error; ?></h3>
                     <form action="http://192.168.64.2/new_project/scripts/login.php" method="POST" enctype="multipart/form-data">
 
+                            <!-- Gathering all info for log in  -->
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="your@email.com" name="email">
                             </div>

@@ -44,6 +44,7 @@ try{
                         
                     </div>
                     <div class="input-group mt-5">
+                        <!-- Displaying table of posts -->
                     <?php
                         foreach($result as $post){
                             $id = $post['id'];
@@ -58,7 +59,8 @@ try{
                             <textarea class=".'form-control'." aria-label=".'text'." placeholder=".'Write here...'."name=".'text'.">".$post['message']."</textarea>
                             <a class='btn btn-primary' href='../scripts/likes.php?postid=".$post['id']."'>Like<br>".count($likes)."</a>
                             </div>";
-                        
+                            
+                            // if user is logged in , he can update or delete his post otherwise these action buttons is not showen
                             if($post['first_name']==$_SESSION['username']){
                                 echo "<a class='btn btn-warning' href='post_edit.php?postid=".$post['id']."'>Edit</a><a class='btn btn-danger' href='../scripts/post_delete.php?postid=".$post['id']."'>Delete</a>";
                             }

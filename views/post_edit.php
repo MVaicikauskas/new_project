@@ -25,8 +25,6 @@ if($_GET){
 
 ?>
 
-
-
 <div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -38,6 +36,7 @@ if($_GET){
                             <span class="input-group-text">Update post</span>
                             <textarea class="form-control" aria-label="With textarea" placeholder="Enter text to update previous post" name="message"></textarea>
                         </div>
+                        <!-- hidden info to get exact post's id for update -->
                         <input type="hidden" name="postid" value="<?php echo $postid?>">
                         
                         <button type="submit" class="btn btn-primary">Submit</button>

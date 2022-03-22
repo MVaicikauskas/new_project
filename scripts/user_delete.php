@@ -11,6 +11,7 @@ if($_GET){
     try{
         $userid = $_GET['userid'];
 
+        // Deleting user from db
         $sql = "DELETE FROM users WHERE id='$userid'";
         $querry = $conn->prepare($sql);
         $result = $querry->execute();
