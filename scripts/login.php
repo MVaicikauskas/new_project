@@ -1,6 +1,6 @@
 <?php
 require_once ("../db_connection.php");
-
+session_start();
 
 // Taking neccesary info from form
 if($_POST){
@@ -23,7 +23,7 @@ try{
 // Checking if we do have user like somebody who's trying to login
 
 if($result){
-    session_start();
+    
     
 
     // Checking password
