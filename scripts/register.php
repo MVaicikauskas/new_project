@@ -56,7 +56,9 @@ if($_POST){
     //And checking if password and confirmed password do mach
     if($password != $confirm){
         array_push($_SESSION['reg_errors'],"Passwords do not match");
-    } 
+    } else {
+        $password = password_hash($password, PASSWORD_BCRYPT);
+    }
 
     //Checking if user's email is already used
     foreach ($result as $user) {
@@ -73,20 +75,14 @@ if($_POST){
         
         header("Location: ../views/register.php");
         
-        // gaunu klaidas
     } else {
-        $firstName = $_POST['first_name'];
-        $lastName = $_POST['last_name'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $confirm = $_POST['confirm'];
-    
-        if($password == $confirm){
-            $password = password_hash($password, PASSWORD_BCRYPT);
+
+        // if($password == $confirm){
+        //     $password = password_hash($password, PASSWORD_BCRYPT);
         
-        } else{
-             array_push($_SESSION['reg_errors'],"Passwords do not match");
-        }
+        // } else{
+        //      array_push($_SESSION['reg_errors'],"Passwords do not match");
+        // }
     
         try{
         $sql = "INSERT INTO users (first_name, last_name, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
